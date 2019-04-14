@@ -1,0 +1,77 @@
+
+h1 { font-size: 3em; font-weight: bold; margin-top: 0;}
+
+div#topHeaderRow {
+   font-size: 0.9em;
+}
+
+.price { 
+
+}
+
+.similarTitle {  }
+
+.cartText { 
+
+}
+
+footer {
+   margin-top: 1em;
+   background-color: #E7E7E7;
+
+}
+
+.tight-form-group {  }
+
+#copyrightRow { 
+    background-color: black; 
+    color:white;
+
+}
+.aaa{
+		   background-color:black;
+	   }
+	   .price{
+		   color: red;
+		   font-weight: 800;
+	   }
+	   .panel p{
+		   font-size: 10px;
+	   }
+	   .panel li{
+		   list-style: none;
+		   margin-top: 10px;
+	   }
+	   .col-md-3 li{
+		   list-style: none;
+		   margin-top: 10px;
+	   }
+	   .table-bordered{
+		   width: 200px;
+		   margin-right: 20px;
+		   align-items: center;
+		   align-content: center;
+		   text-align: center;
+		   vertical-align: middle;
+	   }
+	   .similarTitle{
+		   font-size: 13px;
+	   }
+	   .input-group input{
+		   margin-bottom: 5px;
+		   height: 25px;
+		   border: none;
+		   width: 200px;
+		   border-radius: 5px;
+	   }
+	   .btn-block{
+		   width: 200px;
+	   }
+	   textarea{
+		   width: 200px;
+		   border: none;
+		   border-radius: 5px;
+	   }
+.copy{
+			float: right;
+		}
