@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+   <meta charset="utf-8">
+   <title>Chapter 9 - Share Your Travels</title>
+
+   <link rel="stylesheet" href="lab6.css" />
+   <script type="text/javascript" src="lab6.js"></script>   
+</head>
+<body>
+<header>
+    <h2>Share Your Travels</h2>
+    <nav><img src="images/menu.png"></nav>
+</header>
+<main>
+    <figure id="featured">
+        <img src="images/medium/5855774224.jpg" title="Battle" id="afeatured" />
+        <figcaption id="figcaption">Battle</figcaption>
+    </figure>
+    <div id="thumbnails">
+        <img src="images/small/5855774224.jpg" title="Battle" />
+        <img src="images/small/5856697109.jpg" title="Luneburg" />
+        <img src="images/small/6119130918.jpg" title="Bermuda" />
+        <img src="images/small/8711645510.jpg" title="Athens" />
+        <img src="images/small/9504449928.jpg" title="Florence" />
+    </div>
+
+</main>
+	<script>
+	window.onload=function(){
+		var figcation = document.getElementById("figcaption");
+		var index=0;
+		var pics = document.getElementById("thumbnails").children;
+		var afeatured = document.getElementById("afeatured");
+		var srcs = ["images/medium/5855774224.jpg","images/medium/5856697109.jpg","images/medium/6119130918.jpg","images/medium/8711645510.jpg","images/medium/9504449928.jpg"];
+		var titles = new Array(pics.length);
+		var opacity = 0;
+		var timer = null ;
+		
+		for(var i = 0 ;i<pics.length;i++){
+			titles[i] = pics[i].getAttribute("title");
+
+			
+			
+		}
+        pics[0].onclick=function(){
+			figcation.style.opacity=0;
+			afeatured.setAttribute("src",srcs[0])
+			figcation.innerHTML = titles[0];
+	
+		}
+		 pics[1].onclick=function(){
+			 figcation.style.opacity=0;
+			afeatured.src = srcs[1];
+			 figcation.innerHTML = titles[1];
+
+			 
+		}
+		  pics[2].onclick=function(){
+			  figcation.style.opacity=0;
+			afeatured.src = srcs[2];
+			   figcation.innerHTML = titles[2];
+		
+			
+		}
+		   pics[3].onclick=function(){
+			   figcation.style.opacity=0;
+			   figcation.innerHTML = titles[3];
+			afeatured.src = srcs[3];
+			
+			
+		}
+		    pics[4].onclick=function(){
+				figcation.style.opacity=0;
+			figcation.innerHTML = titles[4];
+			afeatured.src = srcs[4];
+		
+				
+		}
+			afeatured.onmouseover=function(){
+//				clearInterval(timer2);
+			var	timer1 = setInterval(function(){
+				if(opacity<0.8){
+				opacity +=0.01;	
+				}else{
+					clearInterval(timer1)
+				}
+				figcation.style.opacity=opacity;
+			},12.5)
+			}
+			afeatured.onmouseout=function(){
+//				clearInterval(timer1);
+			var timer2 = setInterval(function(){
+				if(opacity>0){
+				opacity -=0.01;	
+				}else{
+					clearInterval(timer2)
+				}
+				figcation.style.opacity=opacity;
+			},12.5)
+			}
+	}
+	</script>
+</body>
+</html>
