@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Chapter 10</title>
+<link rel="stylesheet" href="lab7.css">
+<script src="jquery-3.4.1.js">
+</script>      
+</head>    
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+           <label>Opacity: </label><p><input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" /> <span id="numOpacity">100</span>%</p>
+           <p><label>Saturation: </label><input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders"/> <span id="numSaturation">100</span>%</p>
+           <p><label>Brightness: </label><input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" /> <span id="numBrightness">100</span>%</p>
+           <p><label>Hue Rotate: </label><input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" /> <span id="numHue">0</span>deg</p>
+           <p><label>Grayscale: </label><input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders"/> <span id="numGray">0</span>%</p>
+           <p><label>Blur: </label><input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" /> <span id="numBlur">0</span>px</p>
+           <p><button id="resetFilters">Reset</button> </p>
+        </form>    
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" > 
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            Jan Davidsz. de Heem, 1650 - 1683
+        </figcaption>
+    </figure>   
+    <div id="thumbBox">
+        <div><img src="images/small/painting1.jpg"  alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683" id="qq"/></div>
+        <div><img src="images/small/painting2.jpg"  alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img src="images/small/painting3.jpg"  alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img src="images/small/painting4.jpg"  alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img src="images/small/painting5.jpg"  alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+</main>
+<script>
+$(document).ready(function(){
+	var smallpics = $("#thumbBox").children("div").children("img");
+	smallpics.eq(0).click(function(){
+		$("#imgManipulated").children("figcaption").html("<em>"+this.alt+"</em> <br>"+this.title)
+		$("#imgManipulated").children("img").attr("src","images/medium/painting1.jpg")
+	})
+	smallpics.eq(1).click(function(){
+		$("#imgManipulated").children("figcaption").html("<em>"+this.alt+"</em> <br>"+this.title)
+		$("#imgManipulated").children("img").attr("src","images/medium/painting2.jpg")
+	})
+	smallpics.eq(2).click(function(){
+		$("#imgManipulated").children("figcaption").html("<em>"+this.alt+"</em> <br>"+this.title)
+		$("#imgManipulated").children("img").attr("src","images/medium/painting3.jpg")
+	})
+	smallpics.eq(3).click(function(){
+		$("#imgManipulated").children("figcaption").html("<em>"+this.alt+"</em> <br>"+this.title)
+		$("#imgManipulated").children("img").attr("src","images/medium/painting4.jpg")
+	})
+	smallpics.eq(4).click(function(){
+		$("#imgManipulated").children("figcaption").html("<em>"+this.alt+"</em> <br>"+this.title)
+		$("#imgManipulated").children("img").attr("src","images/medium/painting5.jpg")
+	})
+	$("input").change(function(){
+		var opacity = $("#sliderOpacity").val();
+		var Saturation = $("#sliderSaturation").val();
+		var Brightness = $("#sliderBrightness").val();
+		var Hue = $("#sliderHue").val();
+		var Gray = $("#sliderGray").val();
+		var Bl=$("#sliderBlur").val();
+		$("#imgManipulated").children("img").css({"-webkit-filter": "opacity("+opacity+"%)"+"saturate("+Saturation+"%)"+ "brightness("+Brightness+"%)"+"hue-rotate("+Hue+"deg)"+"grayscale("+Gray+"%)"+"blur("+Bl+"px)","filter": "opacity("+opacity+"%)"+"saturate("+Saturation+"%)"+ "brightness("+Brightness+"%)"+"hue-rotate("+Hue+"deg)"+"grayscale("+Gray+"%)"+"blur("+Bl+"px)"})
+		$("#numOpacity").text(opacity);
+		$("#numSaturation").text(Saturation);
+		$("#numBrightness").text(Brightness);
+		$("#numHue").text(Hue);
+		$("#numGray").text(Gray);
+		$("#numBlur").text(Bl);
+	})
+//	$("#sliderOpacity").change(function(){
+//		var opacity = $(this).val();
+//		$("#imgManipulated").children("img").css({"-webkit-filter": "opacity("+opacity+"%)",
+//    "filter": "opacity("+opacity+"%)"})
+//		$("#numOpacity").text(opacity);
+//	})
+//	$("#sliderSaturation").change(function(){
+//		var Saturation = $(this).val();
+//		$("#imgManipulated").children("img").css({ "-webkit-filter":"saturate("+Saturation+"%)",
+//    "filter": "saturate("+Saturation+"%)"})
+//		$("#numSaturation").text(Saturation);
+//	})
+//	$("#sliderBrightness").change(function(){
+//		var Brightness = $(this).val();
+//		$("#imgManipulated").children("img").css({"-webkit-filter": "brightness("+Brightness+"%)", /* Chrome, Safari, Opera */
+//    "filter": "brightness("+Brightness+"%)"})
+//		$("#numBrightness").text(Brightness);
+//	})
+//	$("#sliderHue").change(function(){
+//		var Hue = $(this).val();
+//		$("#imgManipulated").children("img").css({"-webkit-filter":"hue-rotate("+Hue+"deg)", /* Chrome, Safari, Opera */
+//    "filter": "hue-rotate("+Hue+"deg)"})
+//		$("#numHue").text(Hue);
+//	})
+//	$("#sliderGray").change(function(){
+//		var Gray = $(this).val();
+//		$("#imgManipulated").children("img").css({"-webkit-filter": "grayscale("+Gray+"%)", /* Chrome, Safari, Opera */
+//    "filter": "grayscale("+Gray+"%)"})
+//		$("#numGray").text(Gray);
+//	})
+//	$("#sliderBlur").change(function(){
+//		var Bl=$(this).val();
+//		$("#imgManipulated").children("img").css({"-webkit-filter":"blur("+Bl+"px)",
+//    "filter": "blur("+Bl+"px)"})
+//		$("#numBlur").text(Bl);
+//	})
+	$("#resetFilters").click(function(){
+		location.reload();
+	})
+	
+
+})
+</script>    
+</body>   
+</html>
